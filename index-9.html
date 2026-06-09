@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ezequiel Samuel Prilusky — Junior Backend Developer | Python · Java · FastAPI · Flask</title>
+  <meta name="description" content="Junior Backend Developer especializado en Python, Java, FastAPI, Flask, Spring Boot y PostgreSQL. Disponible para trabajo remoto en Argentina, LATAM y España."/>
+  <meta name="keywords" content="backend developer, python developer, java developer, fastapi, flask, spring boot, postgresql, microservices, REST API, remoto, Argentina, Mendoza, junior developer"/>
+  <meta name="author" content="Ezequiel Samuel Prilusky"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://ezequiel199899.github.io"/>
+
+  <!-- Open Graph (LinkedIn, WhatsApp, Facebook) -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://ezequiel199899.github.io"/>
+  <meta property="og:title" content="Ezequiel Samuel Prilusky — Junior Backend Developer"/>
+  <meta property="og:description" content="Backend Developer especializado en Python, Java, FastAPI y microservicios. Proyecto en producción. Disponible para trabajo remoto."/>
+  <meta property="og:locale" content="es_AR"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:title" content="Ezequiel Samuel Prilusky — Junior Backend Developer"/>
+  <meta name="twitter:description" content="Backend Developer especializado en Python, Java, FastAPI y microservicios. Disponible para trabajo remoto."/>
+
+  <!-- Schema.org para Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ezequiel Samuel Prilusky",
+    "jobTitle": "Junior Backend Developer",
+    "url": "https://ezequiel199899.github.io",
+    "email": "priluskyezequielsamuel@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Mendoza",
+      "addressCountry": "AR"
+    },
+    "sameAs": ["https://github.com/Ezequiel199899"],
+    "knowsAbout": ["Python", "Java", "FastAPI", "Flask", "Spring Boot", "PostgreSQL", "REST APIs", "Docker", "Microservices"]
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0D1117;
+      --bg2:       #161B22;
+      --bg3:       #1C2333;
+      --green:     #00FF9C;
+      --green-dim: #00cc7a;
+      --blue:      #58A6FF;
+      --text:      #E6EDF3;
+      --muted:     #8B949E;
+      --border:    #30363D;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 2.5rem;
+      background: rgba(13,17,23,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--green);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--green); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      text-align: center;
+      padding: 7rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 40%, rgba(0,255,156,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--green);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+    .hero-photo {
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--green);
+      margin-bottom: 1.8rem;
+      box-shadow: 0 0 30px rgba(0,255,156,0.2);
+    }
+    .hero-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    .hero-name span { color: var(--green); }
+    .typing-line {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
+      color: var(--blue);
+      min-height: 1.6em;
+      margin-bottom: 1.5rem;
+    }
+    .cursor {
+      display: inline-block;
+      width: 2px; height: 1.1em;
+      background: var(--green);
+      vertical-align: middle;
+      animation: blink 0.8s step-end infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .hero-desc {
+      max-width: 540px;
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
+    .hero-cta {
+      display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.75rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--green);
+      color: #0D1117;
+      border: 2px solid var(--green);
+    }
+    .btn-primary:hover { background: var(--green-dim); border-color: var(--green-dim); }
+    .btn-outline {
+      background: transparent;
+      color: var(--green);
+      border: 2px solid var(--green);
+    }
+    .btn-outline:hover { background: rgba(0,255,156,0.08); }
+
+    .scroll-hint {
+      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+      color: var(--muted); font-size: 0.75rem; letter-spacing: 0.1em;
+      display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+    }
+    .scroll-arrow { animation: bounce 1.8s infinite; }
+    @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
+
+    /* ── SECTIONS ── */
+    section { padding: 5rem 2rem; }
+    .container { max-width: 900px; margin: 0 auto; }
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--green);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+    .section-sub {
+      color: var(--muted);
+      max-width: 580px;
+      margin-bottom: 3rem;
+      font-size: 0.95rem;
+    }
+    .divider {
+      width: 40px; height: 3px;
+      background: var(--green);
+      border-radius: 2px;
+      margin-bottom: 3rem;
+    }
+
+    /* ── SERVICES ── */
+    #services { background: var(--bg2); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+    .service-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.75rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .service-card:hover {
+      border-color: var(--green);
+      transform: translateY(-4px);
+    }
+    .service-icon {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    .service-title {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+    }
+    .service-desc {
+      color: var(--muted);
+      font-size: 0.875rem;
+      line-height: 1.7;
+    }
+    .service-tags {
+      display: flex; flex-wrap: wrap; gap: 0.4rem;
+      margin-top: 1rem;
+    }
+    .tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      background: rgba(0,255,156,0.08);
+      color: var(--green);
+      border: 1px solid rgba(0,255,156,0.2);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+    }
+
+    /* ── SKILLS ── */
+    #skills { background: var(--bg); }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+    }
+    .skill-group {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+    }
+    .skill-group-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--green);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .skill-list {
+      list-style: none;
+      display: flex; flex-wrap: wrap; gap: 0.4rem;
+    }
+    .skill-list li {
+      font-size: 0.825rem;
+      color: var(--text);
+      background: var(--bg3);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+    }
+
+    /* ── PROJECT ── */
+    #project { background: var(--bg2); }
+    .project-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .project-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--green);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .project-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+    .project-desc {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+    }
+    .project-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .arch-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+    .arch-box .hl { color: var(--green); }
+    .arch-box .hl2 { color: var(--blue); }
+    .feature-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem; }
+    .feature-list li { font-size: 0.875rem; color: var(--muted); display: flex; gap: 0.5rem; align-items: flex-start; }
+    .feature-list li::before { content: '→'; color: var(--green); flex-shrink: 0; margin-top: 0.05rem; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--bg); }
+    .contact-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 3rem;
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .contact-card h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    .contact-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+    .contact-links {
+      display: flex; flex-direction: column; gap: 0.75rem; align-items: center;
+    }
+    .contact-link {
+      display: flex; align-items: center; gap: 0.75rem;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 0.75rem 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      width: 100%; max-width: 340px;
+      transition: all 0.2s;
+    }
+    .contact-link:hover { border-color: var(--green); color: var(--green); }
+    .contact-link span { font-size: 1.1rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    @media (max-width: 680px) {
+      nav { padding: 1rem 1.25rem; }
+      .nav-links { gap: 1rem; }
+      .project-card { grid-template-columns: 1fr; gap: 1.5rem; }
+      .contact-card { padding: 2rem 1.25rem; }
+    }
+
+    /* ── FREELANCE ── */
+    .freelance-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+    .freelance-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.75rem;
+      transition: border-color 0.2s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .freelance-card:hover {
+      border-color: var(--green);
+      transform: translateY(-4px);
+    }
+    .freelance-icon { font-size: 1.8rem; margin-bottom: 0.75rem; }
+    .freelance-title { font-weight: 600; font-size: 1rem; color: var(--text); margin-bottom: 0.5rem; }
+    .freelance-desc { color: var(--muted); font-size: 0.85rem; line-height: 1.7; flex: 1; }
+    .freelance-price {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--green);
+      font-weight: 700;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">ezequiel.dev</div>
+  <ul class="nav-links">
+    <li><a href="#services">Servicios</a></li>
+    <li><a href="#skills">Stack</a></li>
+    <li><a href="#project">Proyecto</a></li>
+    <li><a href="#freelance">Freelance</a></li><li><a href="#contact">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-tag">// disponible para trabajar remotamente</div>
+  <img
+    class="hero-photo"
+    src="https://avatars.githubusercontent.com/u/Ezequiel199899"
+    onerror="this.src='https://ui-avatars.com/api/?name=Ezequiel+Prilusky&background=00FF9C&color=0D1117&size=200&bold=true'"
+    alt="Ezequiel Prilusky"
+  />
+  <h1 class="hero-name">Ezequiel Samuel <span>Prilusky</span></h1>
+  <div class="typing-line" id="typing-line"><span class="cursor"></span></div>
+  <p class="hero-desc">
+    Junior Backend Developer especializado en APIs, microservicios y análisis de datos.
+    Construyo soluciones backend reales, deployadas en producción y listas para escalar.
+  </p>
+  <div class="hero-cta">
+    <a href="#contact" class="btn btn-primary">Contratame</a>
+    <a href="https://contabilidad-de-datos.onrender.com/docs" target="_blank" class="btn btn-outline">Ver API en vivo →</a>
+  </div>
+  <div class="scroll-hint">
+    <span>scroll</span>
+    <span class="scroll-arrow">↓</span>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-label">// lo que ofrezco</div>
+    <h2 class="section-title">Mis Servicios</h2>
+    <div class="divider"></div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">⚙️</div>
+        <div class="service-title">Desarrollo de APIs REST</div>
+        <div class="service-desc">Diseño, construyo y documento APIs robustas con autenticación, validación y manejo de errores. Documentación Swagger/OpenAPI incluida.</div>
+        <div class="service-tags">
+          <span class="tag">FastAPI</span>
+          <span class="tag">Flask</span>
+          <span class="tag">Swagger</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🏗️</div>
+        <div class="service-title">Arquitectura de Microservicios</div>
+        <div class="service-desc">Diseño sistemas con servicios independientes que se comunican entre sí. Experiencia con Python y Java trabajando en conjunto.</div>
+        <div class="service-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Java</span>
+          <span class="tag">Spring Boot</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🗄️</div>
+        <div class="service-title">Bases de Datos & Backend</div>
+        <div class="service-desc">Modelado, optimización y gestión de bases de datos relacionales. Integración de múltiples fuentes de datos en un solo sistema.</div>
+        <div class="service-tags">
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">SQL</span>
+          <span class="tag">JSON</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <div class="service-title">Análisis de Datos & Automatización</div>
+        <div class="service-desc">Procesamiento de datasets financieros, generación de reportes automatizados y proyecciones con Python.</div>
+        <div class="service-tags">
+          <span class="tag">Pandas</span>
+          <span class="tag">NumPy</span>
+          <span class="tag">Data Analysis</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">☁️</div>
+        <div class="service-title">Deploy & DevOps básico</div>
+        <div class="service-desc">Containerización con Docker y deploy en la nube. Mantenimiento del proyecto con Git/GitHub y historial de commits estructurado.</div>
+        <div class="service-tags">
+          <span class="tag">Docker</span>
+          <span class="tag">Render</span>
+          <span class="tag">GitHub</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🤖</div>
+        <div class="service-title">Integración de IA & ML básico</div>
+        <div class="service-desc">Integración de modelos de machine learning en aplicaciones backend. Formación en Data Science e IA aplicada.</div>
+        <div class="service-tags">
+          <span class="tag">ML</span>
+          <span class="tag">Data Science</span>
+          <span class="tag">Oracle ONE</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-label">// tecnologías</div>
+    <h2 class="section-title">Stack Técnico</h2>
+    <div class="divider"></div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-title">Lenguajes</div>
+        <ul class="skill-list">
+          <li>Python</li>
+          <li>Java</li>
+          <li>SQL</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Frameworks</div>
+        <ul class="skill-list">
+          <li>FastAPI</li>
+          <li>Flask</li>
+          <li>Spring Boot</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Bases de datos</div>
+        <ul class="skill-list">
+          <li>PostgreSQL</li>
+          <li>MySQL</li>
+          <li>JSON</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Herramientas</div>
+        <ul class="skill-list">
+          <li>Git</li>
+          <li>GitHub</li>
+          <li>Docker</li>
+          <li>Swagger</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Data & IA</div>
+        <ul class="skill-list">
+          <li>Pandas</li>
+          <li>NumPy</li>
+          <li>ML básico</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Cloud & Deploy</div>
+        <ul class="skill-list">
+          <li>Render</li>
+          <li>Docker</li>
+          <li>REST APIs</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECT -->
+<section id="project">
+  <div class="container">
+    <div class="section-label">// proyecto en producción</div>
+    <h2 class="section-title">Financial Data Platform</h2>
+    <div class="divider"></div>
+    <div class="project-card">
+      <div>
+        <div class="project-label">Proyecto personal · Live en producción</div>
+        <div class="project-title">Plataforma de Análisis Financiero</div>
+        <p class="project-desc">
+          Sistema completo de procesamiento y análisis de datos financieros con arquitectura de microservicios. Integra tipos de cambio, precios de materias primas y genera proyecciones estadísticas automáticas.
+        </p>
+        <ul class="feature-list">
+          <li>Dos microservicios independientes comunicados por HTTP</li>
+          <li>APIs REST documentadas con Swagger/OpenAPI</li>
+          <li>Integración de datos financieros en tiempo real</li>
+          <li>Motor de proyecciones estadísticas con NumPy</li>
+          <li>Containerizado con Docker, deployado en Render</li>
+        </ul>
+        <div class="project-links">
+          <a href="https://contabilidad-de-datos.onrender.com/docs" target="_blank" class="btn btn-primary">API en vivo →</a>
+          <a href="https://github.com/Ezequiel199899/Contabilidad-de-datos-" target="_blank" class="btn btn-outline">Ver código</a>
+        </div>
+      </div>
+      <div>
+        <div class="arch-box">
+<span class="hl">// Arquitectura</span>
+
+┌─────────────────────┐
+│  <span class="hl2">Spring Boot (Java)</span>   │
+│  Main API · :8080   │
+└────────┬────────────┘
+         │ HTTP
+         ▼
+┌─────────────────────┐
+│   <span class="hl2">Flask (Python)</span>    │
+│  Forecasting · :5000│
+└────────┬────────────┘
+         │
+         ▼
+┌─────────────────────┐
+│    <span class="hl">PostgreSQL</span>       │
+│    Database          │
+└─────────────────────┘
+
+<span class="hl">Stack:</span>
+· Python 3.11 + Flask
+· Java 17 + Spring Boot
+· PostgreSQL 15
+· Docker + Render
+· Swagger / OpenAPI
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FREELANCE CTA -->
+<section id="freelance" style="background: var(--bg); padding: 5rem 2rem;">
+  <div class="container">
+    <div class="section-label">// trabajo freelance</div>
+    <h2 class="section-title">¿Necesitás un backend developer?</h2>
+    <div class="divider"></div>
+    <p class="section-sub">Trabajo de forma independiente para proyectos puntuales o continuos. APIs, microservicios, automatizaciones y más. Pedí una demo gratuita de lo que puedo hacer por tu proyecto.</p>
+    <div class="freelance-cards">
+
+      <div class="freelance-card">
+        <div class="freelance-icon">🎯</div>
+        <div class="freelance-title">API REST a medida</div>
+        <div class="freelance-desc">Diseño y construyo tu API desde cero con documentación Swagger incluida. Entrega en 1-2 semanas.</div>
+        <div class="freelance-price">Desde USD $150</div>
+        <a href="mailto:priluskyezequielsamuel@gmail.com?subject=Demo%20API%20REST&body=Hola%20Ezequiel%2C%20quiero%20pedir%20una%20demo%20de%20tu%20servicio%20de%20API%20REST." class="btn btn-primary" style="margin-top:1rem; display:inline-block;">Pedir demo gratuita →</a>
+      </div>
+
+      <div class="freelance-card">
+        <div class="freelance-icon">🔗</div>
+        <div class="freelance-title">Integración de APIs externas</div>
+        <div class="freelance-desc">Conecto tu sistema con APIs de terceros: pagos, datos financieros, servicios externos. Rápido y documentado.</div>
+        <div class="freelance-price">Desde USD $100</div>
+        <a href="mailto:priluskyezequielsamuel@gmail.com?subject=Demo%20Integración%20APIs&body=Hola%20Ezequiel%2C%20quiero%20pedir%20una%20demo%20de%20integración%20de%20APIs." class="btn btn-primary" style="margin-top:1rem; display:inline-block;">Pedir demo gratuita →</a>
+      </div>
+
+      <div class="freelance-card">
+        <div class="freelance-icon">📊</div>
+        <div class="freelance-title">Análisis y automatización de datos</div>
+        <div class="freelance-desc">Proceso tus datasets, genero reportes automáticos y construyo pipelines de datos con Python y PostgreSQL.</div>
+        <div class="freelance-price">Desde USD $120</div>
+        <a href="mailto:priluskyezequielsamuel@gmail.com?subject=Demo%20Análisis%20de%20Datos&body=Hola%20Ezequiel%2C%20quiero%20pedir%20una%20demo%20de%20análisis%20de%20datos." class="btn btn-primary" style="margin-top:1rem; display:inline-block;">Pedir demo gratuita →</a>
+      </div>
+
+      <div class="freelance-card">
+        <div class="freelance-icon">☁️</div>
+        <div class="freelance-title">Deploy y configuración en la nube</div>
+        <div class="freelance-desc">Subo tu app a producción con Docker y Render o Railway. Tu proyecto online en 48hs.</div>
+        <div class="freelance-price">Desde USD $80</div>
+        <a href="mailto:priluskyezequielsamuel@gmail.com?subject=Demo%20Deploy%20Cloud&body=Hola%20Ezequiel%2C%20quiero%20pedir%20una%20demo%20de%20deploy%20en%20la%20nube." class="btn btn-primary" style="margin-top:1rem; display:inline-block;">Pedir demo gratuita →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label">// hablemos</div>
+    <h2 class="section-title">Contacto</h2>
+    <div class="divider"></div>
+    <div class="contact-card">
+      <h3>¿Tenés un proyecto? Trabajemos juntos.</h3>
+      <p>Estoy disponible para trabajo remoto, freelance y primeras oportunidades profesionales. Abierto a proyectos de Argentina, LATAM y España.</p>
+      <div class="contact-links">
+        <a href="https://github.com/Ezequiel199899" target="_blank" class="contact-link">
+          <span>🐙</span> github.com/Ezequiel199899
+        </a>
+        <a href="https://contabilidad-de-datos.onrender.com/docs" target="_blank" class="contact-link">
+          <span>🚀</span> Ver API en producción
+        </a>
+        <a href="mailto:priluskyezequielsamuel@gmail.com" class="contact-link" id="email-link">
+          <span>✉️</span> priluskyezequielsamuel@gmail.com
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Ezequiel Samuel Prilusky · Built with Python, passion & too much coffee ☕</p>
+</footer>
+
+<script>
+  // Typing animation
+  const phrases = [
+    "Backend Developer · Python · Java",
+    "FastAPI · Flask · Spring Boot",
+    "PostgreSQL · REST APIs · Docker",
+    "Microservices · Data Analysis · AI"
+  ];
+  let pi = 0, ci = 0, deleting = false;
+  const el = document.getElementById('typing-line');
+
+  function type() {
+    const phrase = phrases[pi];
+    if (!deleting) {
+      ci++;
+      el.innerHTML = phrase.slice(0, ci) + '<span class="cursor"></span>';
+      if (ci === phrase.length) {
+        deleting = true;
+        setTimeout(type, 1800);
+        return;
+      }
+    } else {
+      ci--;
+      el.innerHTML = phrase.slice(0, ci) + '<span class="cursor"></span>';
+      if (ci === 0) {
+        deleting = false;
+        pi = (pi + 1) % phrases.length;
+      }
+    }
+    setTimeout(type, deleting ? 40 : 70);
+  }
+  type();
+
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.service-card, .skill-group, .project-card, .contact-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
